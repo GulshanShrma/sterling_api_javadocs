@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified"
+    elementFormDefault="qualified"
+    targetNamespace="http://www.sterlingcommerce.com/documentation/YPM/PricelistLine_Attr_master"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:yfc="http://www.sterlingcommerce.com/documentation/YPM/PricelistLine_Attr_master" xmlns:yfctype="http://www.sterlingcommerce.com/documentation/types">
+    <xsd:annotation yfc:fileName="YPM_PricelistLine_Attr_master.xsd" yfc:rootElement="PricelistLineAttr">
+        <xsd:appinfo source="yfc:structure">
+            <PricelistLineAttr hasAttributes="Y"/>
+        </xsd:appinfo>
+    </xsd:annotation>
+    <xsd:import
+        namespace="http://www.sterlingcommerce.com/documentation/types" schemaLocation="datatypes.xsd"/>
+    <xsd:element name="PricelistLineAttr" type="yfc:PricelistLineAttrXSDType">
+        <xsd:annotation yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+            <xsd:documentation>Supports range(through virtual columns)/absolute(decimal attr1..5, string 1...5) match based pricing.Virtual Columns support range based pricing through attributes RangeAttr1...5, ie if RangeAttr1's value captured, say falls between MinAttr1(LTE) and MaxAttr1(GT), list price from this table is fetched rather from PricelistLine Table. Relationship with PricelistLine table is oneToMany in nature</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:complexType name="PricelistLineAttrXSDType">
+        <xsd:attribute name="DecimalAttr1" use="optional">
+            <xsd:annotation yfc:columnName="DECIMAL_ATTR1" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>DecimalAttr1 for storing decimal item attributes data. this is an absolute match record</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="yfctype:DecimalWithNegative"/>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="DecimalAttr2" use="optional">
+            <xsd:annotation yfc:columnName="DECIMAL_ATTR2" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>DecimalAttr2 for storing decimal item attributes data. this is an absolute match record</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="yfctype:DecimalWithNegative"/>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="DecimalAttr3" use="optional">
+            <xsd:annotation yfc:columnName="DECIMAL_ATTR3" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>DecimalAttr3  for storing decimal item attributes data. this is an absolute match record</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="yfctype:DecimalWithNegative"/>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="DecimalAttr4" use="optional">
+            <xsd:annotation yfc:columnName="DECIMAL_ATTR4" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>DecimalAttr4  for storing decimal item attributes data. this is an absolute match record</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="yfctype:DecimalWithNegative"/>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="DecimalAttr5" use="optional">
+            <xsd:annotation yfc:columnName="DECIMAL_ATTR5" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>DecimalAttr5  for storing decimal item attributes data. this is an absolute match record</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="yfctype:DecimalWithNegative"/>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="ListPrice" use="optional">
+            <xsd:annotation yfc:columnName="LIST_PRICE" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>ListPrice of item attribute</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="yfctype:UnitPrice"/>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="MaxAttr1" use="optional">
+            <xsd:annotation yfc:columnName="MAX_ATTR1" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>MaxAttr1 stores maximum value of the pricing range for attribute1</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="yfctype:DecimalWithNegative"/>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="MaxAttr2" use="optional">
+            <xsd:annotation yfc:columnName="MAX_ATTR2" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>MaxAttr2 stores maximum value of the pricing range for attribute2</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="yfctype:DecimalWithNegative"/>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="MaxAttr3" use="optional">
+            <xsd:annotation yfc:columnName="MAX_ATTR3" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>MaxAttr3 stores maximum value of the pricing range for attribute3</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="yfctype:DecimalWithNegative"/>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="MaxAttr4" use="optional">
+            <xsd:annotation yfc:columnName="MAX_ATTR4" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>MaxAttr4 stores maximum value of the pricing range for attribute4</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="yfctype:DecimalWithNegative"/>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="MaxAttr5" use="optional">
+            <xsd:annotation yfc:columnName="MAX_ATTR5" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>MaxAttr5 stores maximum value of the pricing range for attribute5</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="yfctype:DecimalWithNegative"/>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="MinAttr1" use="optional">
+            <xsd:annotation yfc:columnName="MIN_ATTR1" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>MinAttr1 stores minimum value of the pricing range for attribute1</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="yfctype:DecimalWithNegative"/>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="MinAttr2" use="optional">
+            <xsd:annotation yfc:columnName="MIN_ATTR2" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>MinAttr2 stores minimum value of the pricing range for attribute2</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="yfctype:DecimalWithNegative"/>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="MinAttr3" use="optional">
+            <xsd:annotation yfc:columnName="MIN_ATTR3" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>MinAttr3 stores minimum value of the pricing range for attribute3</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="yfctype:DecimalWithNegative"/>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="MinAttr4" use="optional">
+            <xsd:annotation yfc:columnName="MIN_ATTR4" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>MinAttr4 stores minimum value of the pricing range for attribute4</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="yfctype:DecimalWithNegative"/>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="MinAttr5" use="optional">
+            <xsd:annotation yfc:columnName="MIN_ATTR5" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>MinAttr5 stores minimum value of the pricing range for attribute5</xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+                <xsd:union>
+                    <xsd:simpleType>
+                        <xsd:restriction base="yfctype:DecimalWithNegative"/>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:enumeration value=""/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:union>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="Operation" type="yfctype:String" use="optional"/>
+        <xsd:attribute name="PricelistLineAttrId" type="yfctype:Key" use="optional">
+            <xsd:annotation yfc:columnName="PRICELIST_LINE_ATTR_ID" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>Unique identifier for attribute tiers. To be used when modifying an PricelistLineAttr record</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="PricelistLineKey" type="yfctype:Key" use="optional">
+            <xsd:annotation yfc:columnName="PRICELIST_LINE_KEY" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>Foreign key attribute from YPM_PRICELIST_LINE table.</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="StringAttr1" type="yfctype:VARCHAR2-200" use="optional">
+            <xsd:annotation yfc:columnName="STRING_ATTR1" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>StringAttr1 for storing string item attributes data. this is an absolute match record</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="StringAttr2" type="yfctype:VARCHAR2-200" use="optional">
+            <xsd:annotation yfc:columnName="STRING_ATTR2" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>StringAttr2 for storing string item attributes data. this is an absolute match record</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="StringAttr3" type="yfctype:VARCHAR2-200" use="optional">
+            <xsd:annotation yfc:columnName="STRING_ATTR3" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>StringAttr3 for storing string item attributes data. this is an absolute match record</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="StringAttr4" type="yfctype:VARCHAR2-200" use="optional">
+            <xsd:annotation yfc:columnName="STRING_ATTR4" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>StringAttr4 for storing string item attributes data. this is an absolute match record</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="StringAttr5" type="yfctype:VARCHAR2-200" use="optional">
+            <xsd:annotation yfc:columnName="STRING_ATTR5" yfc:tableName="YPM_PRICELIST_LINE_ATTR">
+                <xsd:documentation>StringAttr5 for storing string item attributes data. this is an absolute match record</xsd:documentation>
+            </xsd:annotation>
+        </xsd:attribute>
+    </xsd:complexType>
+</xsd:schema>
